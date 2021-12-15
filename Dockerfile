@@ -1,10 +1,10 @@
 FROM python:3.6-buster
-LABEL maintainer="codyzacharias@pm.me"
+LABEL maintainer="mr.dead.toast@gmail.com"
 
 WORKDIR /root
 
-RUN git clone --depth=1 https://github.com/twintproject/twint.git && \
-	cd /root/twint && \
-	pip3 install . -r requirements.txt
+COPY . /root/
+RUN cd /root && mkdir output && pip3 install . -r requirements.txt
 
-CMD /bin/bash
+
+ENTRYPOINT ["twint"]
